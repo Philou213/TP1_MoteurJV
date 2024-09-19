@@ -25,13 +25,6 @@ func _flipSprite(horizontalMovement: float) -> void:
 		animated_sprite_2d.flip_h = false
 	
 func _getMovementDirection() -> Vector2:
-	var horizontalDirection := Input.get_axis("left_axis", "right_axis")
-	var verticalDirection := Input.get_axis("top_axis", "down_axis")
-	var direction := Vector2(horizontalDirection,verticalDirection)
-	
-	# Normalize the direction
-	if direction != Vector2.ZERO:
-		direction = direction.normalized()
-		
+	var direction := Input.get_vector("left_axis","right_axis","top_axis", "down_axis")
 	return direction
 	

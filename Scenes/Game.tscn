@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://dvent5tpf6trp"]
 
-[ext_resource type="PackedScene" uid="uid://b1cjp011upqfj" path="res://Scenes/PlayerCharacter.tscn" id="1_1gphk"]
+[ext_resource type="PackedScene" uid="uid://b1cjp011upqfj" path="res://Scenes/Player.tscn" id="1_1gphk"]
 [ext_resource type="Texture2D" uid="uid://bast5o1o5lvlf" path="res://Assets/Tilemap_Flat.png" id="2_8axnp"]
 [ext_resource type="Texture2D" uid="uid://dp7p8qm2ssgvh" path="res://Assets/Water.png" id="3_u6y50"]
 [ext_resource type="Texture2D" uid="uid://bfn7pheie4h1s" path="res://Assets/Foam.png" id="4_7fhiv"]
@@ -79,7 +79,7 @@ sources/0 = SubResource("TileSetAtlasSource_joq5k")
 
 [node name="Node2D" type="Node2D"]
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("1_1gphk")]
+[node name="Player" parent="." instance=ExtResource("1_1gphk")]
 z_index = 2
 position = Vector2(559, 304)
 SPEED = 20000
