@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfn7pheie4h1s"
-path="res://.godot/imported/Foam.png-9cd010ae00e23d09912a3984dcb04a1b.ctex"
+uid="uid://dkbwcnub3weh0"
+path="res://.godot/imported/Castle_Destroyed.png-7cc248793a61618e4651fc30d5e532b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Foam.png"
-dest_files=["res://.godot/imported/Foam.png-9cd010ae00e23d09912a3984dcb04a1b.ctex"]
+source_file="res://Assets/Buildings/Castle/Castle_Destroyed.png"
+dest_files=["res://.godot/imported/Castle_Destroyed.png-7cc248793a61618e4651fc30d5e532b4.ctex"]
 
 [params]
 
