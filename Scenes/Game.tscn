@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://dvent5tpf6trp"]
+[gd_scene load_steps=14 format=4 uid="uid://dvent5tpf6trp"]
 
 [ext_resource type="PackedScene" uid="uid://b1cjp011upqfj" path="res://Scenes/Player.tscn" id="1_1gphk"]
 [ext_resource type="Texture2D" uid="uid://bast5o1o5lvlf" path="res://Assets/Tilemap_Flat.png" id="2_8axnp"]
 [ext_resource type="Texture2D" uid="uid://dp7p8qm2ssgvh" path="res://Assets/Water.png" id="3_u6y50"]
 [ext_resource type="Texture2D" uid="uid://bfn7pheie4h1s" path="res://Assets/Foam.png" id="4_7fhiv"]
+[ext_resource type="Texture2D" uid="uid://by5avhid2tavl" path="res://Assets/Tree.png" id="4_njuvt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l4kod"]
 texture = ExtResource("2_8axnp")
@@ -77,9 +78,43 @@ texture_region_size = Vector2i(192, 192)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_joq5k")
 
-[node name="GameScene" type="Node2D"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7tjo7"]
+texture = ExtResource("4_njuvt")
+texture_region_size = Vector2i(192, 192)
+0:2/0 = 0
+0:2/0/y_sort_origin = 65
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-19, 81.5, 21, 81, 21.5, 60.5, -19, 59)
+0:0/animation_speed = 10.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/0 = 0
+0:0/0/y_sort_origin = 50
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(24, 82, -24, 83, -25.5, 52, 23.5, 51)
 
-[node name="Tilemaps" type="Node" parent="."]
+[sub_resource type="TileSet" id="TileSet_5v45n"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_7tjo7")
+
+[node name="GameScene" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_1gphk")]
+z_index = 2
+position = Vector2(559, 304)
+SPEED = 20000
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.95, 0.95)
+limit_left = -400
+limit_top = -300
+limit_right = 1800
+limit_bottom = 1100
+
+[node name="Tilemaps" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="TileMapGround" type="TileMapLayer" parent="Tilemaps"]
 z_index = 1
@@ -95,14 +130,8 @@ tile_set = SubResource("TileSet_0xwfs")
 tile_map_data = PackedByteArray("AAD8//3/AAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAADAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAAFAP3/AAAAAAAAAAAGAP3/AAAAAAAAAAAHAP3/AAAAAAAAAAAIAP3/AAAAAAAAAAAJAP3/AAAAAAAAAAAKAP3/AAAAAAAAAAALAP3/AAAAAAAAAAAMAP3/AAAAAAAAAAANAP3/AAAAAAAAAAAOAP3/AAAAAAAAAAAPAP3/AAAAAAAAAAAQAP3/AAAAAAAAAAARAP3/AAAAAAAAAAASAP3/AAAAAAAAAAATAP3/AAAAAAAAAAAUAP3/AAAAAAAAAAAVAP3/AAAAAAAAAAAWAP3/AAAAAAAAAAAXAP3/AAAAAAAAAAAYAP3/AAAAAAAAAAAZAP3/AAAAAAAAAAAZAP7/AAAAAAAAAAAZAP//AAAAAAAAAAAZAAAAAAAAAAAAAAAZAAEAAAAAAAAAAAAZAAIAAAAAAAAAAAAZAAMAAAAAAAAAAAAZAAQAAAAAAAAAAAAZAAUAAAAAAAAAAAAZAAYAAAAAAAAAAAAZAAcAAAAAAAAAAAAZAAgAAAAAAAAAAAAZAAkAAAAAAAAAAAAZAAoAAAAAAAAAAAAZAAsAAAAAAAAAAAAZAAwAAAAAAAAAAAAZAA0AAAAAAAAAAAAZAA4AAAAAAAAAAAAYAA4AAAAAAAAAAAAXAA4AAAAAAAAAAAAWAA4AAAAAAAAAAAAVAA4AAAAAAAAAAAAUAA4AAAAAAAAAAAATAA4AAAAAAAAAAAASAA4AAAAAAAAAAAARAA4AAAAAAAAAAAAQAA4AAAAAAAAAAAAPAA4AAAAAAAAAAAAOAA4AAAAAAAAAAAANAA4AAAAAAAAAAAAMAA4AAAAAAAAAAAALAA4AAAAAAAAAAAAKAA4AAAAAAAAAAAAJAA4AAAAAAAAAAAAIAA4AAAAAAAAAAAAHAA4AAAAAAAAAAAAGAA4AAAAAAAAAAAAFAA4AAAAAAAAAAAAEAA4AAAAAAAAAAAADAA4AAAAAAAAAAAACAA4AAAAAAAAAAAABAA4AAAAAAAAAAAAAAA4AAAAAAAAAAAD//w4AAAAAAAAAAAD+/w4AAAAAAAAAAAD9/w4AAAAAAAAAAAD8/w4AAAAAAAAAAAD8/w0AAAAAAAAAAAD8/wwAAAAAAAAAAAD8/wsAAAAAAAAAAAD8/woAAAAAAAAAAAD8/wkAAAAAAAAAAAD8/wgAAAAAAAAAAAD8/wcAAAAAAAAAAAD8/wYAAAAAAAAAAAD8/wUAAAAAAAAAAAD8/wQAAAAAAAAAAAD8/wMAAAAAAAAAAAD8/wIAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wAAAAAAAAAAAAD8////AAAAAAAAAAD8//7/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_kx8cc")
 
-[node name="Player" parent="." instance=ExtResource("1_1gphk")]
+[node name="TileMapObjects" type="TileMapLayer" parent="Tilemaps"]
 z_index = 2
-position = Vector2(559, 304)
-SPEED = 20000
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.95, 0.95)
-limit_left = -400
-limit_top = -300
-limit_right = 1800
-limit_bottom = 1100
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAARAAAAAAAAAAAAAAD/////AAAAAAAAAAABAAUAAAAAAAAAAAAFAAIAAAAAAAAAAAASAAYAAAAAAAAAAAACAAwAAAAAAAAAAAAJAAoAAAAAAAAAAAAOAAcAAAAAAAIAAAADAAgAAAAAAAIAAAALAAEAAAAAAAIAAAATAAwAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAUAAAAAAAIAAAA=")
+tile_set = SubResource("TileSet_5v45n")
