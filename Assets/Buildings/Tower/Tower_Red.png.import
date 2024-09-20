@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp7p8qm2ssgvh"
-path="res://.godot/imported/Water.png-b2e18ca3bc1ee31d8f0e6ddd4a76a170.ctex"
+uid="uid://cxaf2cjxlg2rj"
+path="res://.godot/imported/Tower_Red.png-4aaf50cd192a0a9e9e2412b4aa27d78a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Water.png"
-dest_files=["res://.godot/imported/Water.png-b2e18ca3bc1ee31d8f0e6ddd4a76a170.ctex"]
+source_file="res://Assets/Buildings/Tower/Tower_Red.png"
+dest_files=["res://.godot/imported/Tower_Red.png-4aaf50cd192a0a9e9e2412b4aa27d78a.ctex"]
 
 [params]
 
