@@ -13,10 +13,11 @@ public partial class MasterManager : SceneTree
 	{
 		base._Initialize();
 
-		GD.Print("Initialized:");
+		GD.Print("Test:");
 
 		instance = new MasterManager();
-		
+		levelManager = new LevelManager();
+
 	}
 
 	private void DeInitalize()
