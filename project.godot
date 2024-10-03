@@ -19,6 +19,10 @@ config/icon="res://Assets/icon.svg"
 
 window/stretch/mode="viewport"
 
+[dotnet]
+
+project/assembly_name="TP1"
+
 [input]
 
 left_axis={
