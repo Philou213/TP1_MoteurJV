@@ -12,12 +12,17 @@ config_version=5
 
 config/name="TP1"
 run/main_scene="res://Scenes/Game.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+run/main_loop_type="MasterManager"
+config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
 [display]
 
 window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="TP1"
 
 [input]
 
