@@ -24,6 +24,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="TP1"
 
+[global_group]
+
+Persist=""
+
 [input]
 
 left_axis={
