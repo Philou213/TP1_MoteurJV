@@ -15,7 +15,7 @@ public partial class MasterManager : SceneTree
 
 		GD.Print("Initialized:");
 
-		instance = (MasterManager)Engine.GetMainLoop();
+		instance = Engine.GetMainLoop() as MasterManager;
 
 		saveManager = GetSaveManager;
 
@@ -37,7 +37,7 @@ public partial class MasterManager : SceneTree
 		{
 			if (instance == null)
 			{
-				instance = new MasterManager();
+				instance = Engine.GetMainLoop() as MasterManager;
 			}
 			return instance;
 		}
