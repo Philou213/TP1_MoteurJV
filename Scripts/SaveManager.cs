@@ -12,8 +12,7 @@ public partial class SaveManager : Node
 			return;
 		}
 
-		GD.Print( GetTree());
-		var saveNodes = GetTree().GetNodesInGroup("Persist");
+		var saveNodes = MasterManager.GetMasterManager.GetNodesInGroup("Persist");
 		foreach (Node saveNode in saveNodes)
 		{
 			saveNode.QueueFree();
@@ -27,6 +26,7 @@ public partial class SaveManager : Node
 
 			var json = new Json();
 			var parseResult = json.Parse(jsonString);
+
 			if (parseResult != Error.Ok)
 			{
 				GD.Print($"JSON Parse Error: {json.GetErrorMessage()} in {jsonString} at line {json.GetErrorLine()}");
@@ -34,10 +34,18 @@ public partial class SaveManager : Node
 			}
 
 			var nodeData = new Godot.Collections.Dictionary<string, Variant>((Godot.Collections.Dictionary)json.Data);
-
 			var newObjectScene = GD.Load<PackedScene>(nodeData["Filename"].ToString());
 			var newObject = newObjectScene.Instantiate<Node>();
-			GetNode(nodeData["Parent"].ToString()).AddChild(newObject);
+			
+			//TODO 
+			//MasterManager.GetMasterManager.GetRoot().GetNode(nodeData["Parent"].ToString()).AddChild(newObject);
+			var parent = MasterManager.GetMasterManager.GetRoot().GetNodeOrNull(nodeData["Parent"].ToString());
+			if (parent != null)
+			{
+				parent.AddChild(newObject);
+			}
+
+
 			newObject.Set(Node2D.PropertyName.Position, new Vector2((float)nodeData["PosX"], (float)nodeData["PosY"]));
 
 			foreach (var (key, value) in nodeData)
@@ -55,7 +63,7 @@ public partial class SaveManager : Node
 	{
 		using var saveFile = FileAccess.Open(FileName, FileAccess.ModeFlags.Write);
 
-		var saveNodes = GetTree().GetNodesInGroup("Persist");
+		var saveNodes = MasterManager.GetMasterManager.GetNodesInGroup("Persist");
 		foreach (Node saveNode in saveNodes)
 		{
 			if (string.IsNullOrEmpty(saveNode.SceneFilePath))

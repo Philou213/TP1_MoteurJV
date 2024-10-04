@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b1cjp011upqfj"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_q8wo2"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_pawqk"]
 [ext_resource type="Texture2D" uid="uid://b6hcdwg1k1m7b" path="res://Assets/Units/Warrior_Blue.png" id="2_ley8a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k4h70"]
@@ -103,7 +103,8 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["Persist"]]
-script = ExtResource("1_q8wo2")
+script = ExtResource("1_pawqk")
+SPEED = 2000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)

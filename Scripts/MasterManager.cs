@@ -13,22 +13,11 @@ public partial class MasterManager : SceneTree
 	{
 		base._Initialize();
 
-		GD.Print("Initialized:");
-
 		instance = Engine.GetMainLoop() as MasterManager;
 
 		saveManager = GetSaveManager;
 
 		saveManager.LoadGame("user://savegame.save");
-	}
-
-	public override void _Finalize()
-	{
-		saveManager.SaveGame("user://savegame.save");
-
-		levelManager = null;
-		saveManager = null;
-		instance = null;
 	}
 
 	public static MasterManager GetMasterManager
