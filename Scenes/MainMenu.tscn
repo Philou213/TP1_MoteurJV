@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=4 uid="uid://btexkm12jn7f3"]
+[gd_scene load_steps=20 format=4 uid="uid://btexkm12jn7f3"]
 
 [ext_resource type="Texture2D" uid="uid://dp7p8qm2ssgvh" path="res://Assets/Water/Water.png" id="1_cqijy"]
 [ext_resource type="Script" path="res://Scripts/PlayButton.cs" id="1_dtin3"]
+[ext_resource type="Script" path="res://Scripts/ExitButton.cs" id="2_bomot"]
 [ext_resource type="Texture2D" uid="uid://bfn7pheie4h1s" path="res://Assets/Water/Foam.png" id="2_mnei3"]
 [ext_resource type="Texture2D" uid="uid://by5avhid2tavl" path="res://Assets/Resources/Tree.png" id="3_jto61"]
 [ext_resource type="Texture2D" uid="uid://cqgl7r6yunip3" path="res://Assets/Buildings/Castle/Castle_Blue.png" id="4_o16re"]
@@ -177,6 +178,7 @@ script = ExtResource("1_dtin3")
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 text = "Quit"
+script = ExtResource("2_bomot")
 
 [node name="Tilemaps" type="Node2D" parent="."]
 y_sort_enabled = true
