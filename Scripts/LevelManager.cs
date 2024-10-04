@@ -1,18 +1,25 @@
 using Godot;
 using System;
 
-[GlobalClass]
 public partial class LevelManager : Node
 {
 	public void LoadLevel(string levelName)
 	{
-		/*if (ResourceLoader.Exists(levelName))
+		PackedScene packedScene = ResourceLoader.Load<PackedScene>(levelName);
+
+		if (packedScene != null)
 		{
-			var tree = SceneTree.GetInstance();
-			if (tree != null)
+			Node newLevel = packedScene.Instantiate();
+			MasterManager.GetMasterManager.Root.AddChild(newLevel);
+			
+			Node currentScene = MasterManager.GetMasterManager.CurrentScene;
+			if (currentScene != null)
 			{
-				tree.ChangeSceneToFile(levelName);
+				currentScene.QueueFree(); // Safely remove the current scene after the new one is added
 			}
-		}*/
+
+			// Set the new scene as the active one
+			MasterManager.GetMasterManager.CurrentScene = newLevel;
+		}
 	}
 }

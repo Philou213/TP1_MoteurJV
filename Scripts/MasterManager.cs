@@ -13,11 +13,7 @@ public partial class MasterManager : SceneTree
 	{
 		base._Initialize();
 
-		GD.Print("Test:");
-
-		instance = new MasterManager();
-		levelManager = new LevelManager();
-
+		instance = Engine.GetMainLoop() as MasterManager;
 	}
 
 	private void DeInitalize()
@@ -33,7 +29,7 @@ public partial class MasterManager : SceneTree
 		{
 			if (instance == null)
 			{
-				instance = new MasterManager();
+				instance = Engine.GetMainLoop() as MasterManager;
 			}
 			return instance;
 		}
