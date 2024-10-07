@@ -17,6 +17,8 @@ public partial class MasterManager : SceneTree
 
 		saveManager = GetSaveManager;
 
+		GD.Print(saveManager);
+
 		saveManager.LoadGame("user://savegame.save");
 	}
 
@@ -31,7 +33,6 @@ public partial class MasterManager : SceneTree
 			return instance;
 		}
 	}
-
 
 	public static LevelManager GetLevelManager
 	{

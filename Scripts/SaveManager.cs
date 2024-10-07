@@ -38,12 +38,7 @@ public partial class SaveManager : Node
 			var newObject = newObjectScene.Instantiate<Node>();
 			
 			//TODO 
-			//MasterManager.GetMasterManager.GetRoot().GetNode(nodeData["Parent"].ToString()).AddChild(newObject);
-			var parent = MasterManager.GetMasterManager.GetRoot().GetNodeOrNull(nodeData["Parent"].ToString());
-			if (parent != null)
-			{
-				parent.AddChild(newObject);
-			}
+			MasterManager.GetMasterManager.GetRoot().GetNode(nodeData["Parent"].ToString()).AddChild(newObject);
 
 
 			newObject.Set(Node2D.PropertyName.Position, new Vector2((float)nodeData["PosX"], (float)nodeData["PosY"]));
