@@ -5,8 +5,6 @@ public partial class SaveManager : Node
 {
 	public void LoadGame(string FileName)
 	{
-		GD.Print("Load:");
-
 		if (!FileAccess.FileExists(FileName))
 		{
 			return;
@@ -36,8 +34,7 @@ public partial class SaveManager : Node
 			var nodeData = new Godot.Collections.Dictionary<string, Variant>((Godot.Collections.Dictionary)json.Data);
 			var newObjectScene = GD.Load<PackedScene>(nodeData["Filename"].ToString());
 			var newObject = newObjectScene.Instantiate<Node>();
-			
-			//TODO 
+
 			MasterManager.GetMasterManager.GetRoot().GetNode(nodeData["Parent"].ToString()).AddChild(newObject);
 
 

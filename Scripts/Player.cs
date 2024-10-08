@@ -54,13 +54,13 @@ public partial class Player : CharacterBody2D
 	}
 
 	public Godot.Collections.Dictionary<string, Variant> Save()
-{
-	return new Godot.Collections.Dictionary<string, Variant>()
 	{
-		{ "Filename", SceneFilePath },
-		{ "Parent", GetParent().GetPath() },
-		{ "PosX", Position.X }, // Vector2 is not supported by JSON
-		{ "PosY", Position.Y }
-	};
-}
+		return new Godot.Collections.Dictionary<string, Variant>()
+		{
+			{ "Filename", SceneFilePath },
+			{ "Parent", GetTree().Root.GetPathTo(GetParent())}, //GetParent().Name },
+			{ "PosX", Position.X },
+			{ "PosY", Position.Y }
+		};
+	}
 }

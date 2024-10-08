@@ -14,12 +14,6 @@ public partial class MasterManager : SceneTree
 		base._Initialize();
 
 		instance = Engine.GetMainLoop() as MasterManager;
-
-		saveManager = GetSaveManager;
-
-		GD.Print(saveManager);
-
-		saveManager.LoadGame("user://savegame.save");
 	}
 
 	public static MasterManager GetMasterManager

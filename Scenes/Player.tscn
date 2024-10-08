@@ -104,7 +104,6 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" groups=["Persist"]]
 script = ExtResource("1_pawqk")
-SPEED = 2000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)
@@ -115,3 +114,10 @@ one_way_collision_margin = 0.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jyxo6")
 animation = &"Idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.95, 0.95)
+limit_left = -400
+limit_top = -300
+limit_right = 1800
+limit_bottom = 1100
