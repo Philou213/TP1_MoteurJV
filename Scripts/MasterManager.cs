@@ -16,13 +16,6 @@ public partial class MasterManager : SceneTree
 		instance = Engine.GetMainLoop() as MasterManager;
 	}
 
-	private void DeInitalize()
-	{
-		levelManager = null;
-		saveManager = null;
-		instance = null;
-	}
-
 	public static MasterManager GetMasterManager
 	{
 		get
@@ -34,7 +27,6 @@ public partial class MasterManager : SceneTree
 			return instance;
 		}
 	}
-
 
 	public static LevelManager GetLevelManager
 	{

@@ -12,5 +12,7 @@ public partial class PlayButton : Button
 	public void OnPressed()
 	{
 		MasterManager.GetLevelManager.LoadLevel("res://Scenes/Game.tscn");
+
+		MasterManager.GetSaveManager.LoadGame("user://savegame.save");
 	}
 }
