@@ -14,5 +14,7 @@ public partial class BackButton : Button
 	public void OnPressed()
 	{
 		BackButtonClicked?.Invoke();
+
+		MasterManager.GetSaveManager.SaveGame("user://savegame.save");
 	}
 }

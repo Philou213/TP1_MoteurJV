@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_pawqk"]
 [ext_resource type="Texture2D" uid="uid://b6hcdwg1k1m7b" path="res://Assets/Units/Warrior_Blue.png" id="2_ley8a"]
-[ext_resource type="PackedScene" uid="uid://1taagi1hbp68" path="res://Scenes/PauseMenu.tscn" id="3_l1inj"]
+[ext_resource type="PackedScene" uid="uid://b6irh177ri1b6" path="res://Scenes/PauseMenu.tscn" id="3_l1inj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k4h70"]
 
